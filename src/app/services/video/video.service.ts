@@ -3,8 +3,8 @@ import {Http} from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { vimeoAPIConfig } from '../constants/environment-constants';
-import {Video} from '../models/video';
+import { vimeoAPIConfig } from '../../constants/environment-constants';
+import {Video} from '../../models/video';
 
 @Injectable()
 export class VideoService {
