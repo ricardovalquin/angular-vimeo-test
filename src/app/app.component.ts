@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
-import {VideoService} from './services/video.service';
+import {VideoService} from './services/video/video.service';
 import {Video} from './models/video';
+import {Category} from './models/category';
+import {CategoryService} from './services/category/category.service';
 
 @Component({
   selector: 'app-root',
@@ -10,11 +12,15 @@ import {Video} from './models/video';
 })
 export class AppComponent {
   title = 'app';
+  categories: Promise<Category[]>;
   videos: Promise<Video[]>;
+
   constructor(private videoService: VideoService) {
     this.videos = videoService.getVideosByCategory('comedy', 1).then(videos => {
       console.log(videos);
       return videos;
     });
+
+    this.categories = CategoryService.getAllCategories().then(categories => categories);
   }
 }
