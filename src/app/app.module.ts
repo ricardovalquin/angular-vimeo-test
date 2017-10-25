@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import {HttpModule} from '@angular/http';
 
-import {VideoService} from './services/video.service';
+import {VideoService} from './services/video/video.service';
+import {CategoryService} from './services/category/category.service';
 
 
 @NgModule({
@@ -15,7 +16,7 @@ import {VideoService} from './services/video.service';
     BrowserModule,
     HttpModule
   ],
-  providers: [ VideoService],
+  providers: [ VideoService, CategoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
