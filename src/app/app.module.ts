@@ -6,6 +6,7 @@ import {HttpModule} from '@angular/http';
 
 import {VideoService} from './services/video/video.service';
 import {CategoryService} from './services/category/category.service';
+import {CategoryFactory} from './factories/category.factory';
 
 
 @NgModule({
@@ -16,7 +17,7 @@ import {CategoryService} from './services/category/category.service';
     BrowserModule,
     HttpModule
   ],
-  providers: [ VideoService, CategoryService],
+  providers: [ VideoService, CategoryService, CategoryFactory],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

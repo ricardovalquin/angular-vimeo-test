@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import {VideoService} from './services/video/video.service';
 import {Video} from './models/video';
 import {Category} from './models/category';
-import {CategoryService} from './services/category/category.service';
+import {CategoryFactory} from './factories/category.factory';
 
 @Component({
   selector: 'app-root',
@@ -15,8 +15,8 @@ export class AppComponent {
   categories: Promise<Category[]>;
   videos: Promise<Video[]>;
 
-  constructor(private videoService: VideoService, private categoryService: CategoryService) {
-    this.categories = categoryService.getAllCategories().then(categories => {
+  constructor(private videoService: VideoService, private categoryFactory: CategoryFactory) {
+    this.categories = categoryFactory.getCategories().then(categories => {
       console.log(categories);
       return categories;
     });
