@@ -15,7 +15,7 @@ export class CategoryService {
   constructor(private http: Http) { }
 
   getAllCategories(): Promise<Category[]> {
-    return this.http.get(`${this.apiConfig['apiBaseUrl']}categories`)
+    return this.http.get(`${this.apiConfig['apiBaseUrl']}categories?access_token=${this.apiConfig['accessToken']}`)
       .toPromise()
       .then(response => response.json().data);
   }

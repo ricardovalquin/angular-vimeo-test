@@ -15,12 +15,15 @@ export class AppComponent {
   categories: Promise<Category[]>;
   videos: Promise<Video[]>;
 
-  constructor(private videoService: VideoService) {
+  constructor(private videoService: VideoService, private categoryService: CategoryService) {
+    this.categories = categoryService.getAllCategories().then(categories => {
+      console.log(categories);
+      return categories;
+    });
+
     this.videos = videoService.getVideosByCategory('comedy', 1).then(videos => {
       console.log(videos);
       return videos;
     });
-
-    this.categories = CategoryService.getAllCategories().then(categories => categories);
   }
 }
