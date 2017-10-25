@@ -16,10 +16,7 @@ export class VideoService {
     return this.http.get(`${this.apiConfig['apiBaseUrl']}categories/${category}/videos?page=${page}&per_page=
     ${this.apiConfig['perPage']}&access_token=${this.apiConfig['accessToken']}`)
       .toPromise()
-      .then(response => {
-        console.log(response);
-        return response.json().data;
-      });
+      .then(response => response.json().data);
   }
 
 }
